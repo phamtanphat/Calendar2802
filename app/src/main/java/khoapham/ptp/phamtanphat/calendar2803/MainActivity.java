@@ -3,6 +3,9 @@ package khoapham.ptp.phamtanphat.calendar2803;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -10,22 +13,19 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
+    EditText edtSomin,edtSomax;
+    Button btnDem;
+    TextView txtNgay;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Calendar calendar = Calendar.getInstance();
-        int ngay = calendar.get(Calendar.DATE);
-        int thang = calendar.get(Calendar.MONTH);
-        int gio = calendar.get(Calendar.HOUR_OF_DAY);
+        edtSomax = findViewById(R.id.edittextNgaymax);
+        edtSomin = findViewById(R.id.edittextNgaymin);
+        btnDem = findViewById(R.id.buttonDem);
+        txtNgay = findViewById(R.id.textviewNgay);
 
-        calendar.set(ngay,thang,calendar.get(Calendar.YEAR));
 
-//        Lay thoi gian hien tai
-//        Date date = calendar.getTime();
-        String time = new SimpleDateFormat("dd/MM/YYYY").format(Calendar.getInstance().getTime());
-
-        Log.d("BBB", time + "");
     }
 }
