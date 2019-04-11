@@ -6,6 +6,7 @@ import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
         calendar.set(ngay,thang,calendar.get(Calendar.YEAR));
 
+//        Lay thoi gian hien tai
+//        Date date = calendar.getTime();
         String time = new SimpleDateFormat("dd/MM/YYYY").format(Calendar.getInstance().getTime());
 
         Log.d("BBB", time + "");
