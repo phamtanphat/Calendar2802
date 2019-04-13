@@ -54,13 +54,23 @@ public class MainActivity extends AppCompatActivity {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        calendar2.set(year,month,dayOfMonth);
+                        calendar2.set(year , month , dayOfMonth);
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                        edtSomax.setText(simpleDateFormat.format(calendar2.getTimeInMillis()));
 
                     }
-                },2019,4,11 );
-                datePickerDialog.getDatePicker().setMinDate(calendar1.getTimeInMillis());
+                },calendar1.get(Calendar.YEAR),calendar1.get(Calendar.MONTH),calendar1.get(Calendar.DATE) );
+                datePickerDialog.getDatePicker().setMinDate(calendar1.getTimeInMillis() + (1000 * 60 * 60 * 24) );
                 datePickerDialog.show();
 
+            }
+        });
+        btnDem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                long millisecond = calendar2.getTimeInMillis() - calendar1.getTimeInMillis();
+                int date = (int) (millisecond / (1000 * 60 * 60 * 24));
+                txtNgay.setText(date + " ngay");
             }
         });
 
