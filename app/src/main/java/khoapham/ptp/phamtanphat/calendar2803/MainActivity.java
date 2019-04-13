@@ -39,10 +39,11 @@ public class MainActivity extends AppCompatActivity {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        calendar1.set(year,month,dayOfMonth);
-                        Log.d("BBB",calendar1.getTimeInMillis() + "");
+                        calendar1.set(year , month , dayOfMonth);
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                        edtSomin.setText(simpleDateFormat.format(calendar1.getTimeInMillis()));
                     }
-                },2019,4,11 );
+                },calendar1.get(Calendar.YEAR),calendar1.get(Calendar.MONTH),calendar1.get(Calendar.DATE) );
                 datePickerDialog.show();
 
             }
